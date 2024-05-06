@@ -1,3 +1,3 @@
 # LevelUP: explorando a masmorra do mercado de trabalho
 
-Este é o branch com a versão estável do projeto!
+Esse branch tem como função cuidar da parte do desenvolvimento do game, a pasta 'jogo_levelUP' contém o projeto Godot.
