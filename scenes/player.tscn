@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cw4ucu3fi3s2e"]
+
+[ext_resource type="Script" path="res://scripts/Player.gd" id="1_asmej"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kqu51"]
+
+[sub_resource type="AnimationRootNode" id="AnimationRootNode_vndje"]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_asmej")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kqu51")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationRootNode_vndje")
+advance_expression_base_node = NodePath("../Animation")
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+
+[node name="spr_player" type="Sprite2D" parent="."]
