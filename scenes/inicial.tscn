@@ -1,0 +1,243 @@
+[gd_scene load_steps=13 format=3 uid="uid://bncevsdxjtnaj"]
+
+[ext_resource type="Texture2D" uid="uid://dds2yfmaylap0" path="res://Logo/LogoSuperior.png" id="1_67js4"]
+[ext_resource type="Script" path="res://scenes/inicial.gd" id="1_etgr0"]
+[ext_resource type="Texture2D" uid="uid://dh60p46oskf0q" path="res://Logo/LogoInferior.png" id="2_8tylk"]
+[ext_resource type="Texture2D" uid="uid://divb2er30j57n" path="res://Logo/Centro.png" id="3_jyney"]
+[ext_resource type="AudioStream" uid="uid://d286rdy7u11l0" path="res://assets/Audio/Musica/Inicial/Regency_Council_110bps_122s.wav" id="5_x4hqp"]
+
+[sub_resource type="Curve" id="Curve_h6m34"]
+_data = [Vector2(0.851449, 1), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveTexture" id="CurveTexture_f4m4f"]
+curve = SubResource("Curve_h6m34")
+
+[sub_resource type="Curve" id="Curve_sxfl6"]
+_data = [Vector2(0.445055, 0), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveTexture" id="CurveTexture_ko83q"]
+curve = SubResource("Curve_sxfl6")
+
+[sub_resource type="Animation" id="Animation_18467"]
+resource_name = "LogoStart"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OpeningScreen/CortinaSuperior:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(4.49219, 319.5), Vector2(4.492, 60.92)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("OpeningScreen/CortinaInferior:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5, 2.5),
+"transitions": PackedFloat32Array(1, -2, -2),
+"update": 0,
+"values": [Vector2(4.4922, 330), Vector2(4.4922, 330), Vector2(4.492, 65)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("OpeningScreen/CortinaInferior:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5, 2.5),
+"transitions": PackedFloat32Array(1, -2, -2),
+"update": 0,
+"values": [Vector2(575.998, 481), Vector2(575.998, 481), Vector2(575.998, 612.8)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("OpeningScreen/CortinaSuperior:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(576, 159.25), Vector2(576, 30.81)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("OpeningScreen/Centro:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(3, 4.5),
+"transitions": PackedFloat32Array(-0.5, -0.5),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("OpeningScreen:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("OpeningScreen:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(5.3, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6esmb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OpeningScreen/CortinaSuperior:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4.49219, 319.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("OpeningScreen/CortinaInferior:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4.4922, 330)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("OpeningScreen/CortinaInferior:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(575.998, 481)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("OpeningScreen/CortinaSuperior:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(576, 159.25)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("OpeningScreen/Centro:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("OpeningScreen:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tm46c"]
+_data = {
+"LogoStart": SubResource("Animation_18467"),
+"RESET": SubResource("Animation_6esmb")
+}
+
+[node name="Inicial" type="Node2D"]
+script = ExtResource("1_etgr0")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="FundoTelaInicial" type="Sprite2D" parent="Control"]
+position = Vector2(576.5, 322.5)
+scale = Vector2(4.50391, 645)
+texture = SubResource("CurveTexture_f4m4f")
+
+[node name="OpeningScreen" type="Node2D" parent="Control"]
+
+[node name="FundoLogo" type="Sprite2D" parent="Control/OpeningScreen"]
+position = Vector2(576.5, 322.5)
+scale = Vector2(4.50391, 645)
+texture = SubResource("CurveTexture_f4m4f")
+
+[node name="LogoSuperior" type="Sprite2D" parent="Control/OpeningScreen"]
+position = Vector2(589, 212)
+texture = ExtResource("1_67js4")
+
+[node name="CortinaSuperior" type="Sprite2D" parent="Control/OpeningScreen"]
+position = Vector2(576, 159.25)
+scale = Vector2(4.49219, 319.5)
+texture = SubResource("CurveTexture_ko83q")
+
+[node name="LogoInferior" type="Sprite2D" parent="Control/OpeningScreen"]
+position = Vector2(590, 421)
+texture = ExtResource("2_8tylk")
+
+[node name="CortinaInferior" type="Sprite2D" parent="Control/OpeningScreen"]
+position = Vector2(575.998, 481)
+scale = Vector2(4.4922, 330)
+texture = SubResource("CurveTexture_ko83q")
+
+[node name="Centro" type="Sprite2D" parent="Control/OpeningScreen"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(589, 318)
+texture = ExtResource("3_jyney")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
+libraries = {
+"": SubResource("AnimationLibrary_tm46c")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_x4hqp")
+autoplay = true
