@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://bncevsdxjtnaj"]
+[gd_scene load_steps=14 format=3 uid="uid://bncevsdxjtnaj"]
 
 [ext_resource type="Texture2D" uid="uid://dds2yfmaylap0" path="res://Logo/LogoSuperior.png" id="1_67js4"]
 [ext_resource type="Script" path="res://scenes/inicial.gd" id="1_etgr0"]
 [ext_resource type="Texture2D" uid="uid://dh60p46oskf0q" path="res://Logo/LogoInferior.png" id="2_8tylk"]
 [ext_resource type="Texture2D" uid="uid://divb2er30j57n" path="res://Logo/Centro.png" id="3_jyney"]
 [ext_resource type="AudioStream" uid="uid://d286rdy7u11l0" path="res://assets/Audio/Musica/Inicial/Regency_Council_110bps_122s.wav" id="5_x4hqp"]
+[ext_resource type="Texture2D" uid="uid://xos7g6ehcagu" path="res://assets/Imagens/Backgrounds/FundoInicial.png" id="6_ljeoj"]
 
 [sub_resource type="Curve" id="Curve_h6m34"]
 _data = [Vector2(0.851449, 1), 0.0, 0.0, 0, 0]
@@ -198,10 +199,10 @@ anchors_preset = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="FundoTelaInicial" type="Sprite2D" parent="Control"]
-position = Vector2(576.5, 322.5)
-scale = Vector2(4.50391, 645)
-texture = SubResource("CurveTexture_f4m4f")
+[node name="FundoInicial" type="Sprite2D" parent="Control"]
+position = Vector2(577, 323)
+scale = Vector2(0.791209, 0.791667)
+texture = ExtResource("6_ljeoj")
 
 [node name="OpeningScreen" type="Node2D" parent="Control"]
 
