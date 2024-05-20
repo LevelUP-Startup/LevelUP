@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://gj45wrtks5oa"]
+
+[ext_resource type="Texture2D" uid="uid://t3uv68iajjee" path="res://assets/Logo/Logo.png" id="1_acji1"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(79, 66)
+scale = Vector2(0.28355, 0.28355)
+texture = ExtResource("1_acji1")

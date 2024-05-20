@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c17qjn8p2nufr"]
+
+[ext_resource type="PackedScene" uid="uid://cle5hffgj57ia" path="res://scenes/City/tile_map_city.tscn" id="1_n5yav"]
+[ext_resource type="PackedScene" uid="uid://cw4ucu3fi3s2e" path="res://Actors/player.tscn" id="2_7tsyc"]
+
+[node name="City" type="Node2D"]
+
+[node name="TileMapCity" parent="." instance=ExtResource("1_n5yav")]
+position = Vector2(2188, 217)
+
+[node name="Player" parent="." instance=ExtResource("2_7tsyc")]
+position = Vector2(1196, -404)
+scale = Vector2(1.64, 1.64)
+platform_floor_layers = 4294901768
