@@ -1,16 +1,361 @@
-[gd_scene load_steps=2 format=3 uid="uid://gj45wrtks5oa"]
+[gd_scene load_steps=14 format=3 uid="uid://gj45wrtks5oa"]
 
 [ext_resource type="Texture2D" uid="uid://t3uv68iajjee" path="res://assets/Logo/Logo.png" id="1_acji1"]
+[ext_resource type="Script" path="res://scenes/UI/MainMenu.gd" id="1_urty7"]
+[ext_resource type="Texture2D" uid="uid://doogq4jrh0gr5" path="res://assets/Graficos/GUI/Paineis/obj_06_02.png" id="2_cfjos"]
+[ext_resource type="Texture2D" uid="uid://dmuujkgoqsmf2" path="res://assets/Graficos/GUI/Placas/Plank_09.png" id="4_4obrc"]
+[ext_resource type="Texture2D" uid="uid://bj8kmmqs8sfvv" path="res://assets/Graficos/GUI/Placas/plank_19.png" id="5_edrbb"]
+[ext_resource type="LabelSettings" uid="uid://cq6tvvgwbm0t" path="res://assets/Fontes/main_label_settings.tres" id="5_hrhwq"]
+[ext_resource type="Texture2D" uid="uid://mytmv7x6g40c" path="res://assets/Graficos/GUI/Placas/Plank_07.png" id="6_yslj7"]
+[ext_resource type="Texture2D" uid="uid://ccnk3vteyn26r" path="res://assets/Graficos/GUI/Placas/Plank_11.png" id="7_xaldg"]
+[ext_resource type="FontFile" uid="uid://k3gvlj17y6" path="res://assets/Fontes/HammersmithOne-Regular.ttf" id="9_n7xfa"]
 
-[node name="Control" type="Control"]
+[sub_resource type="Animation" id="Animation_cmlp4"]
+resource_name = "Init"
+length = 6.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-150, -0.25, 0, 1.4, 22.5, 1, -1.3, -21.5, 0.25, 0),
+"times": PackedFloat32Array(0, 1.8)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.8)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Plank09:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(582.482, -0.25, 0, 0.25, 0, 582.482, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(1.8, 2.4)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Plank09:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(-91.1932, -0.25, 0, 0.25, 0, 95.8068, -0.25, 0, 0.25, 0, 70.5, -0.25, 0, 0.25, 0, 108.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(1.8, 2.2, 2.5, 2.8)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Plank07:position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(592.861, -0.25, 0, 0.25, 0, 592.861, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(1.8, 3)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Plank07:position:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(-86.765, -0.25, 0, 0.25, 0, 256.235, -0.25, 0, 0.25, 0, 232.5, -0.25, 0, 0.25, 0, 256.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(1.8, 2.4, 2.7, 3.1)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Plank19:position:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(597, -0.25, 0, 0.25, 0, 597, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(1.8, 4)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Plank19:position:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(-84, -0.25, 0, 0.25, 0, 429, -0.25, 0, 0.25, 0, 401.5, -0.25, 0, 0.25, 0, 428.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(1.8, 3, 3.3, 3.7)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Plank11:position:x")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1285, -0.25, 0, 0.25, 0, 1285, -0.25, 0, 0.25, 0, 1012, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(1.8, 4.1, 4.7)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Plank11:position:y")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(584, -0.25, 0, 0.25, 0, 584, -0.25, 0, 0.25, 0, 584, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(1.8, 4.1, 4.7)
+}
+
+[sub_resource type="Animation" id="Animation_h6vuq"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-150, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Plank09:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(582.482, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Plank09:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-91.1932, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Plank07:position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(592.861, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Plank07:position:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-86.765, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Plank19:position:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(597, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Plank19:position:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-84, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Plank11:position:x")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1285, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Plank11:position:y")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(584, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6f6mn"]
+_data = {
+"Init": SubResource("Animation_cmlp4"),
+"RESET": SubResource("Animation_h6vuq")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_y7337"]
+font = ExtResource("9_n7xfa")
+font_size = 60
+
+[node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
 size_flags_horizontal = 3
 size_flags_vertical = 2
+script = ExtResource("1_urty7")
 
-[node name="Logo" type="Sprite2D" parent="."]
-position = Vector2(79, 66)
-scale = Vector2(0.28355, 0.28355)
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-150, 0)
+
+[node name="Obj0602" type="Sprite2D" parent="Node2D"]
+position = Vector2(74, 59)
+texture = ExtResource("2_cfjos")
+
+[node name="Logo" type="Sprite2D" parent="Node2D"]
+position = Vector2(57, 55)
+scale = Vector2(0.199205, 0.199205)
 texture = ExtResource("1_acji1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6f6mn")
+}
+
+[node name="Plank09" type="Sprite2D" parent="."]
+position = Vector2(582.482, -91.1932)
+scale = Vector2(0.655469, 0.738356)
+texture = ExtResource("4_4obrc")
+
+[node name="Label" type="Label" parent="Plank09"]
+offset_left = -278.399
+offset_top = -42.6623
+offset_right = 283.601
+offset_bottom = 48.3377
+text = "Novo Jogo"
+label_settings = ExtResource("5_hrhwq")
+
+[node name="Button" type="Button" parent="Plank09"]
+modulate = Color(1, 1, 1, 0.372549)
+offset_left = -398.923
+offset_top = -81.9388
+offset_right = -390.923
+offset_bottom = -73.9388
+scale = Vector2(99.5518, 19.805)
+
+[node name="Plank07" type="Sprite2D" parent="."]
+position = Vector2(592.861, -86.765)
+scale = Vector2(0.63906, 0.706605)
+texture = ExtResource("6_yslj7")
+
+[node name="Label" type="Label" parent="Plank07"]
+offset_left = -387.852
+offset_top = -38.9185
+offset_right = 391.148
+offset_bottom = 52.0815
+text = "Carregar Jogo"
+label_settings = ExtResource("5_hrhwq")
+
+[node name="Button" type="Button" parent="Plank07"]
+modulate = Color(1, 1, 1, 0.368627)
+offset_left = -401.935
+offset_top = -82.7902
+offset_right = -393.935
+offset_bottom = -74.7902
+scale = Vector2(100.496, 19.7863)
+
+[node name="Plank19" type="Sprite2D" parent="."]
+position = Vector2(597, -84)
+texture = ExtResource("5_edrbb")
+
+[node name="Label" type="Label" parent="Plank19"]
+offset_left = -218.0
+offset_top = -27.5
+offset_right = 218.0
+offset_bottom = 63.5
+text = "Créditos"
+label_settings = ExtResource("5_hrhwq")
+
+[node name="Button" type="Button" parent="Plank19"]
+modulate = Color(1, 1, 1, 0.270588)
+offset_left = -243.0
+offset_top = -56.5
+offset_right = -235.0
+offset_bottom = -48.5
+scale = Vector2(60.9118, 13.6716)
+
+[node name="Plank11" type="Sprite2D" parent="."]
+position = Vector2(1285, 584)
+texture = ExtResource("7_xaldg")
+
+[node name="Label" type="Label" parent="Plank11"]
+offset_left = -48.0
+offset_top = -38.0
+offset_right = 57.0
+offset_bottom = 38.0
+text = "Sair"
+label_settings = SubResource("LabelSettings_y7337")
+
+[node name="Button" type="Button" parent="Plank11"]
+modulate = Color(1, 1, 1, 0.541176)
+offset_left = 88.0
+offset_top = -76.0
+offset_right = 96.0
+offset_bottom = -68.0
+scale = Vector2(-21.5884, 18.0676)
+
+[connection signal="pressed" from="Plank09/Button" to="." method="_novo_jogo"]
+[connection signal="pressed" from="Plank07/Button" to="." method="_carregar_jogo"]
+[connection signal="pressed" from="Plank19/Button" to="." method="_creditos"]
+[connection signal="pressed" from="Plank11/Button" to="." method="_on_button_pressed"]

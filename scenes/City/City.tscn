@@ -1,9 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://c17qjn8p2nufr"]
+[gd_scene load_steps=6 format=3 uid="uid://c17qjn8p2nufr"]
 
 [ext_resource type="PackedScene" uid="uid://cle5hffgj57ia" path="res://scenes/City/tile_map_city.tscn" id="1_n5yav"]
+[ext_resource type="Script" path="res://scenes/City/City.gd" id="1_sd0j6"]
 [ext_resource type="PackedScene" uid="uid://cw4ucu3fi3s2e" path="res://Actors/player.tscn" id="2_7tsyc"]
+[ext_resource type="AudioStream" uid="uid://ds2542gxif6h1" path="res://assets/Audio/Musica/Jogo/Cidade/Meeting_The_Chancellor_160bpm_120s.wav" id="3_lrgrf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w0pl6"]
+size = Vector2(133, 126)
 
 [node name="City" type="Node2D"]
+script = ExtResource("1_sd0j6")
 
 [node name="TileMapCity" parent="." instance=ExtResource("1_n5yav")]
 position = Vector2(2188, 217)
@@ -12,3 +18,17 @@ position = Vector2(2188, 217)
 position = Vector2(1196, -404)
 scale = Vector2(1.64, 1.64)
 platform_floor_layers = 4294901768
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_lrgrf")
+autoplay = true
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(4974, 1997)
+
+[node name="DescerDungeon" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2, -7)
+scale = Vector2(1.31754, 1.29229)
+shape = SubResource("RectangleShape2D_w0pl6")
+
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

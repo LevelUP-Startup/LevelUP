@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cq6tvvgwbm0t"]
+
+[ext_resource type="FontFile" uid="uid://g1a0og7mv4yp" path="res://assets/Fontes/Berry Rotunda.ttf" id="1_8lo88"]
+
+[resource]
+resource_name = "MainLabelSettings"
+font = ExtResource("1_8lo88")
+font_size = 90
