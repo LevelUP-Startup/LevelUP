@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cw4ucu3fi3s2e"]
+[gd_scene load_steps=37 format=3 uid="uid://cw4ucu3fi3s2e"]
 
 [ext_resource type="Script" path="res://Actors/Player.gd" id="1_kpbbs"]
 [ext_resource type="Script" path="res://addons/LPCAnimatedSprite/LPCAnimatedSprite2D.gd" id="2_lc1bc"]
@@ -14,11 +14,66 @@
 [ext_resource type="Texture2D" uid="uid://ceq5kp6gc3kux" path="res://assets/LPC_SpriteSheets/hands/gloves/male/golden_gloves_male.png" id="12_uck0l"]
 [ext_resource type="Texture2D" uid="uid://j7quiyr7t4pq" path="res://assets/LPC_SpriteSheets/hands/bracers/male/leather_bracers_male.png" id="13_4vx1x"]
 [ext_resource type="Texture2D" uid="uid://b28648qs1yssw" path="res://assets/LPC_SpriteSheets/weapons/right hand/male/spear_male.png" id="14_vtf6h"]
+[ext_resource type="Texture2D" uid="uid://dkwayj2klu1xe" path="res://assets/Graficos/FX/light.png" id="15_kutys"]
+[ext_resource type="AudioStream" uid="uid://dpuvyiotnhx3i" path="res://assets/Audio/SFX/footstep.wav" id="16_0ntly"]
+[ext_resource type="AudioStream" uid="uid://dqg6igrkaijup" path="res://assets/Audio/SFX/grunts.wav" id="17_kaqy0"]
+[ext_resource type="AudioStream" uid="uid://c4t6ljvwfm3t" path="res://assets/Audio/SFX/swipe.wav" id="18_qo5mt"]
+[ext_resource type="PackedScene" uid="uid://bl1l218ijacur" path="res://Entities/Items/exit_finder.tscn" id="19_gbjiq"]
+[ext_resource type="PackedScene" uid="uid://dow5hph5ychju" path="res://Entities/Items/monster_counter.tscn" id="20_q22t7"]
+[ext_resource type="PackedScene" uid="uid://d3vcblv74ylof" path="res://Entities/Items/Weapons/Weapon.tscn" id="21_c73so"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kqu51"]
 size = Vector2(29, 46)
 
 [sub_resource type="AnimationRootNode" id="AnimationRootNode_vndje"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_shero"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [sub_resource type="Resource" id="Resource_sofu0"]
 script = ExtResource("4_6ps13")
@@ -92,17 +147,12 @@ SpriteSheet = ExtResource("14_vtf6h")
 Name = "WeaponRight"
 SpriteType = 0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f50a2"]
-size = Vector2(24, 26)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fbw5d"]
-size = Vector2(28, 26)
-
 [node name="Player" type="CharacterBody2D"]
+z_index = 2
 collision_mask = 14
 script = ExtResource("1_kpbbs")
 
-[node name="HurtBox" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 7)
 shape = SubResource("RectangleShape2D_kqu51")
 
@@ -112,31 +162,39 @@ advance_expression_base_node = NodePath("../Animation")
 
 [node name="Animation" type="AnimationPlayer" parent="."]
 
-[node name="spr_player" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_shero")
+animation = &"walk"
 
 [node name="PlayerSprite" type="Node2D" parent="."]
 script = ExtResource("2_lc1bc")
 SpriteSheets = Array[ExtResource("4_6ps13")]([SubResource("Resource_sofu0"), SubResource("Resource_mbmmb"), SubResource("Resource_f1dja"), SubResource("Resource_welib"), SubResource("Resource_gtbka"), SubResource("Resource_dxafe"), SubResource("Resource_m5chs"), SubResource("Resource_8jqc0"), SubResource("Resource_4p8nk"), SubResource("Resource_3mtjm"), SubResource("Resource_6ircc"), SubResource("Resource_0kkiq")])
-DefaultAnimation = 7
+DefaultAnimation = 4
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="ThrustDown" type="CollisionShape2D" parent="."]
-position = Vector2(0, 30)
-shape = SubResource("RectangleShape2D_f50a2")
-disabled = true
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = ExtResource("15_kutys")
 
-[node name="ThrustUp" type="CollisionShape2D" parent="."]
-position = Vector2(1, -18)
-shape = SubResource("RectangleShape2D_f50a2")
-disabled = true
+[node name="SfxFootstep" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_0ntly")
 
-[node name="ThrustLeft" type="CollisionShape2D" parent="."]
-position = Vector2(-21, 9)
-shape = SubResource("RectangleShape2D_fbw5d")
-disabled = true
+[node name="SfxPain" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_kaqy0")
 
-[node name="ThrusRight" type="CollisionShape2D" parent="."]
-position = Vector2(21, 9)
-shape = SubResource("RectangleShape2D_fbw5d")
-disabled = true
+[node name="SfxSwipe" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_qo5mt")
+
+[node name="ItemPowers" type="Node2D" parent="."]
+position = Vector2(1, -8)
+scale = Vector2(0.0800005, 0.0800005)
+
+[node name="exit_finder" parent="ItemPowers" instance=ExtResource("19_gbjiq")]
+size_flags_vertical = 0
+
+[node name="Control" parent="ItemPowers" instance=ExtResource("20_q22t7")]
+offset_top = -174.999
+offset_bottom = -174.999
+
+[node name="Weapon" parent="." instance=ExtResource("21_c73so")]
+position = Vector2(0, 14)

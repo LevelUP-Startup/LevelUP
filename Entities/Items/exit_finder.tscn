@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://bl1l218ijacur"]
+
+[ext_resource type="Script" path="res://Entities/Items/exit_finder.gd" id="1_5stxh"]
+[ext_resource type="PackedScene" uid="uid://bhbv4jaok0cr" path="res://Entities/Items/level_down_finder.tscn" id="1_rp0c6"]
+[ext_resource type="PackedScene" uid="uid://bnohfrnn7ya8i" path="res://Entities/Items/level_up_finder.tscn" id="2_vxexf"]
+
+[node name="exit_finder" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5stxh")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="level_down_finder" parent="PanelContainer/MarginContainer" instance=ExtResource("1_rp0c6")]
+position = Vector2(-132, -193)
+rotation = 3.14159
+scale = Vector2(1.5, 1.5)
+
+[node name="level_up_finder" parent="PanelContainer/MarginContainer" instance=ExtResource("2_vxexf")]
+position = Vector2(134, -191)
+rotation = 3.14159
+scale = Vector2(1.5, 1.5)

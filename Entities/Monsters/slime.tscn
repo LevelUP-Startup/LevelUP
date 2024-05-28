@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwhymkatxcxnp"]
+
+[ext_resource type="Script" path="res://entities/Monsters/slime.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://c443f6ukv3jpi" path="res://assets/Graficos/fx/blob.png" id="2"]
+
+[node name="Slime" type="Node2D"]
+scale = Vector2(4, 4)
+script = ExtResource("1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+light_mask = 0
+texture = ExtResource("2")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

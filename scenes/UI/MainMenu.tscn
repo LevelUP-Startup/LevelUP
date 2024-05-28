@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://gj45wrtks5oa"]
+[gd_scene load_steps=18 format=3 uid="uid://gj45wrtks5oa"]
 
 [ext_resource type="Texture2D" uid="uid://t3uv68iajjee" path="res://assets/Logo/Logo.png" id="1_acji1"]
 [ext_resource type="Script" path="res://scenes/UI/MainMenu.gd" id="1_urty7"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://mytmv7x6g40c" path="res://assets/Graficos/GUI/Placas/Plank_07.png" id="6_yslj7"]
 [ext_resource type="Texture2D" uid="uid://ccnk3vteyn26r" path="res://assets/Graficos/GUI/Placas/Plank_11.png" id="7_xaldg"]
 [ext_resource type="FontFile" uid="uid://k3gvlj17y6" path="res://assets/Fontes/HammersmithOne-Regular.ttf" id="9_n7xfa"]
+[ext_resource type="Texture2D" uid="uid://iod70qrux8nc" path="res://assets/Graficos/GUI/Cursores/015.png" id="10_5qjcj"]
 
 [sub_resource type="Animation" id="Animation_cmlp4"]
 resource_name = "Init"
@@ -38,7 +39,7 @@ tracks/1/keys = {
 tracks/2/type = "bezier"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Plank09:position:x")
+tracks/2/path = NodePath("Plank0:position:x")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -49,7 +50,7 @@ tracks/2/keys = {
 tracks/3/type = "bezier"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Plank09:position:y")
+tracks/3/path = NodePath("Plank0:position:y")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -60,7 +61,7 @@ tracks/3/keys = {
 tracks/4/type = "bezier"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Plank07:position:x")
+tracks/4/path = NodePath("Plank1:position:x")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -71,7 +72,7 @@ tracks/4/keys = {
 tracks/5/type = "bezier"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Plank07:position:y")
+tracks/5/path = NodePath("Plank1:position:y")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -82,7 +83,7 @@ tracks/5/keys = {
 tracks/6/type = "bezier"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Plank19:position:x")
+tracks/6/path = NodePath("Plank2:position:x")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -93,7 +94,7 @@ tracks/6/keys = {
 tracks/7/type = "bezier"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Plank19:position:y")
+tracks/7/path = NodePath("Plank2:position:y")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -104,7 +105,7 @@ tracks/7/keys = {
 tracks/8/type = "bezier"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Plank11:position:x")
+tracks/8/path = NodePath("Plank3:position:x")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -115,13 +116,39 @@ tracks/8/keys = {
 tracks/9/type = "bezier"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Plank11:position:y")
+tracks/9/path = NodePath("Plank3:position:y")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
 "points": PackedFloat32Array(584, -0.25, 0, 0.25, 0, 584, -0.25, 0, 0.25, 0, 584, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(1.8, 4.1, 4.7)
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("pointer:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 4.7, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/11/type = "method"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath(".")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"start_UI"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_h6vuq"]
@@ -151,7 +178,7 @@ tracks/1/keys = {
 tracks/2/type = "bezier"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Plank09:position:x")
+tracks/2/path = NodePath("Plank0:position:x")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -162,7 +189,7 @@ tracks/2/keys = {
 tracks/3/type = "bezier"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Plank09:position:y")
+tracks/3/path = NodePath("Plank0:position:y")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -173,7 +200,7 @@ tracks/3/keys = {
 tracks/4/type = "bezier"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Plank07:position:x")
+tracks/4/path = NodePath("Plank1:position:x")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -184,7 +211,7 @@ tracks/4/keys = {
 tracks/5/type = "bezier"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Plank07:position:y")
+tracks/5/path = NodePath("Plank1:position:y")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -195,7 +222,7 @@ tracks/5/keys = {
 tracks/6/type = "bezier"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Plank19:position:x")
+tracks/6/path = NodePath("Plank2:position:x")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -206,7 +233,7 @@ tracks/6/keys = {
 tracks/7/type = "bezier"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Plank19:position:y")
+tracks/7/path = NodePath("Plank2:position:y")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -217,7 +244,7 @@ tracks/7/keys = {
 tracks/8/type = "bezier"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Plank11:position:x")
+tracks/8/path = NodePath("Plank3:position:x")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -228,7 +255,7 @@ tracks/8/keys = {
 tracks/9/type = "bezier"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Plank11:position:y")
+tracks/9/path = NodePath("Plank3:position:y")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -246,6 +273,55 @@ _data = {
 [sub_resource type="LabelSettings" id="LabelSettings_y7337"]
 font = ExtResource("9_n7xfa")
 font_size = 60
+
+[sub_resource type="Animation" id="Animation_ilqil"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pointer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3urhl"]
+resource_name = "selected"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pointer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 0.415686)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Plank0/Label0:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.329412, 0, 0.615686)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6kxvp"]
+_data = {
+"RESET": SubResource("Animation_ilqil"),
+"selected": SubResource("Animation_3urhl")
+}
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -273,12 +349,13 @@ libraries = {
 "": SubResource("AnimationLibrary_6f6mn")
 }
 
-[node name="Plank09" type="Sprite2D" parent="."]
+[node name="Plank0" type="Sprite2D" parent="."]
 position = Vector2(582.482, -91.1932)
 scale = Vector2(0.655469, 0.738356)
 texture = ExtResource("4_4obrc")
 
-[node name="Label" type="Label" parent="Plank09"]
+[node name="Label0" type="Label" parent="Plank0"]
+modulate = Color(1, 0.888235, 0.833333, 0.935948)
 offset_left = -278.399
 offset_top = -42.6623
 offset_right = 283.601
@@ -286,7 +363,7 @@ offset_bottom = 48.3377
 text = "Novo Jogo"
 label_settings = ExtResource("5_hrhwq")
 
-[node name="Button" type="Button" parent="Plank09"]
+[node name="Button" type="Button" parent="Plank0"]
 modulate = Color(1, 1, 1, 0.372549)
 offset_left = -398.923
 offset_top = -81.9388
@@ -294,12 +371,12 @@ offset_right = -390.923
 offset_bottom = -73.9388
 scale = Vector2(99.5518, 19.805)
 
-[node name="Plank07" type="Sprite2D" parent="."]
+[node name="Plank1" type="Sprite2D" parent="."]
 position = Vector2(592.861, -86.765)
 scale = Vector2(0.63906, 0.706605)
 texture = ExtResource("6_yslj7")
 
-[node name="Label" type="Label" parent="Plank07"]
+[node name="Label1" type="Label" parent="Plank1"]
 offset_left = -387.852
 offset_top = -38.9185
 offset_right = 391.148
@@ -307,7 +384,7 @@ offset_bottom = 52.0815
 text = "Carregar Jogo"
 label_settings = ExtResource("5_hrhwq")
 
-[node name="Button" type="Button" parent="Plank07"]
+[node name="Button" type="Button" parent="Plank1"]
 modulate = Color(1, 1, 1, 0.368627)
 offset_left = -401.935
 offset_top = -82.7902
@@ -315,11 +392,11 @@ offset_right = -393.935
 offset_bottom = -74.7902
 scale = Vector2(100.496, 19.7863)
 
-[node name="Plank19" type="Sprite2D" parent="."]
+[node name="Plank2" type="Sprite2D" parent="."]
 position = Vector2(597, -84)
 texture = ExtResource("5_edrbb")
 
-[node name="Label" type="Label" parent="Plank19"]
+[node name="Label2" type="Label" parent="Plank2"]
 offset_left = -218.0
 offset_top = -27.5
 offset_right = 218.0
@@ -327,7 +404,7 @@ offset_bottom = 63.5
 text = "Créditos"
 label_settings = ExtResource("5_hrhwq")
 
-[node name="Button" type="Button" parent="Plank19"]
+[node name="Button" type="Button" parent="Plank2"]
 modulate = Color(1, 1, 1, 0.270588)
 offset_left = -243.0
 offset_top = -56.5
@@ -335,11 +412,11 @@ offset_right = -235.0
 offset_bottom = -48.5
 scale = Vector2(60.9118, 13.6716)
 
-[node name="Plank11" type="Sprite2D" parent="."]
+[node name="Plank3" type="Sprite2D" parent="."]
 position = Vector2(1285, 584)
 texture = ExtResource("7_xaldg")
 
-[node name="Label" type="Label" parent="Plank11"]
+[node name="Label3" type="Label" parent="Plank3"]
 offset_left = -48.0
 offset_top = -38.0
 offset_right = 57.0
@@ -347,7 +424,7 @@ offset_bottom = 38.0
 text = "Sair"
 label_settings = SubResource("LabelSettings_y7337")
 
-[node name="Button" type="Button" parent="Plank11"]
+[node name="Button" type="Button" parent="Plank3"]
 modulate = Color(1, 1, 1, 0.541176)
 offset_left = 88.0
 offset_top = -76.0
@@ -355,7 +432,17 @@ offset_right = 96.0
 offset_bottom = -68.0
 scale = Vector2(-21.5884, 18.0676)
 
-[connection signal="pressed" from="Plank09/Button" to="." method="_novo_jogo"]
-[connection signal="pressed" from="Plank07/Button" to="." method="_carregar_jogo"]
-[connection signal="pressed" from="Plank19/Button" to="." method="_creditos"]
-[connection signal="pressed" from="Plank11/Button" to="." method="_on_button_pressed"]
+[node name="pointer" type="Sprite2D" parent="."]
+position = Vector2(268, 108)
+scale = Vector2(0.424463, 0.424463)
+texture = ExtResource("10_5qjcj")
+
+[node name="PointerAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6kxvp")
+}
+
+[connection signal="pressed" from="Plank0/Button" to="." method="_novo_jogo"]
+[connection signal="pressed" from="Plank1/Button" to="." method="_carregar_jogo"]
+[connection signal="pressed" from="Plank2/Button" to="." method="_creditos"]
+[connection signal="pressed" from="Plank3/Button" to="." method="_on_button_pressed"]

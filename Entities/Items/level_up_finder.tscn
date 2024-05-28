@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnohfrnn7ya8i"]
+
+[ext_resource type="Texture2D" uid="uid://djrjd7jy6gh1" path="res://assets/Graficos/GUI/Cursores/Cursor Default Friends.png" id="1_xgl6i"]
+
+[node name="level_up_finder" type="Node2D"]
+
+[node name="UpStairs" type="Sprite2D" parent="."]
+position = Vector2(-2.38419e-07, 0)
+rotation = 2.35619
+texture = ExtResource("1_xgl6i")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+collision_mask = 0

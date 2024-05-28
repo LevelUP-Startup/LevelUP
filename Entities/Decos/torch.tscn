@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://cc1qouh1ca7t2"]
+
+[ext_resource type="Script" path="res://Entities/Decos/torch.gd" id="1_6at50"]
+[ext_resource type="Texture2D" uid="uid://dj8h8y634fwqe" path="res://assets/Graficos/deco/torch_1.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://brf2t73ap4fs6" path="res://assets/Graficos/deco/torch_2.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://d0t132jywhoo3" path="res://assets/Graficos/deco/torch_3.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://lqxocms407qg" path="res://assets/Graficos/deco/torch_4.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://dkwayj2klu1xe" path="res://assets/Graficos/fx/light.png" id="6"]
+
+[sub_resource type="SpriteFrames" id="1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_6at50")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+light_mask = 0
+position = Vector2(8, 8)
+sprite_frames = SubResource("1")
+frame_progress = 0.472187
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+light_mask = 0
+position = Vector2(8, 19)
+color = Color(0.917647, 0.207843, 0, 1)
+energy = 2.27
+range_z_min = 0
+range_z_max = 9
+shadow_enabled = true
+shadow_item_cull_mask = 2
+texture = ExtResource("6")
+texture_scale = 0.2

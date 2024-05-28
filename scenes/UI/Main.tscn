@@ -1,0 +1,146 @@
+[gd_scene load_steps=13 format=3 uid="uid://c4dghl3o7c38o"]
+
+[ext_resource type="Script" path="res://scenes/UI/Main.gd" id="1_wyrll"]
+[ext_resource type="Theme" uid="uid://ks8ewg5jsgpi" path="res://resources/themes/LevelUpTheme.tres" id="2_vsvgd"]
+[ext_resource type="Texture2D" uid="uid://dgrbutman0vs" path="res://assets/Graficos/Items/coin.png" id="3_odxug"]
+[ext_resource type="PackedScene" uid="uid://ddo6k4tj5q7b0" path="res://scenes/UI/pause_popup.tscn" id="4_q52wb"]
+[ext_resource type="AudioStream" uid="uid://mnfs7nf1eu1g" path="res://assets/Audio/Musica/Jogo/Dungeon/ComMonstros/Adventurama_185bpm_60s.wav" id="5_1yfgi"]
+[ext_resource type="AudioStream" uid="uid://nrep5l340g41" path="res://assets/Audio/SFX/exit.wav" id="6_6jnfe"]
+[ext_resource type="AudioStream" uid="uid://bgyk302e7c50d" path="res://assets/Audio/SFX/DoorFX_03.wav" id="7_f3crl"]
+[ext_resource type="AudioStream" uid="uid://c7xp31x881ypm" path="res://assets/Audio/SFX/DoorFX_04.wav" id="8_el7dj"]
+
+[sub_resource type="Animation" id="Animation_50a7j"]
+resource_name = "blink"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HUD/Control/HealthBar:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.6, 0.6, 0), Color(1, 0, 0, 1), Color(1, 0.6, 0.6, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sjnqb"]
+_data = {
+"blink": SubResource("Animation_50a7j")
+}
+
+[sub_resource type="Animation" id="Animation_g4qog"]
+resource_name = "blink"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.67451, 0, 0), Color(0.819608, 0.541176, 0, 1), Color(0.929412, 0.815686, 0.6, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mt6mq"]
+_data = {
+"blink": SubResource("Animation_g4qog")
+}
+
+[node name="Main" type="Node"]
+script = ExtResource("1_wyrll")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="HealthBar" type="ProgressBar" parent="HUD/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.75
+anchor_top = 0.75
+anchor_right = 14.25
+anchor_bottom = 2.25
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 840.0
+offset_bottom = 150.0
+scale = Vector2(0.4, 0.4)
+theme = ExtResource("2_vsvgd")
+step = 1.0
+value = 35.0
+rounded = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/Control/HealthBar"]
+root_node = NodePath("../../../..")
+libraries = {
+"": SubResource("AnimationLibrary_sjnqb")
+}
+
+[node name="GoldLabel" type="Label" parent="HUD/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 869.0
+offset_top = 18.0
+offset_right = 1310.0
+offset_bottom = 143.0
+grow_horizontal = 0
+scale = Vector2(0.6, 0.6)
+theme = ExtResource("2_vsvgd")
+text = "0"
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/Control/GoldLabel"]
+libraries = {
+"": SubResource("AnimationLibrary_mt6mq")
+}
+
+[node name="icon" type="Sprite2D" parent="HUD/Control/GoldLabel"]
+position = Vector2(380, 50)
+texture = ExtResource("3_odxug")
+
+[node name="DepthLabel" type="Label" parent="HUD/Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 964.0
+offset_top = 591.0
+offset_right = 1236.0
+offset_bottom = 652.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.6, 0.6)
+theme = ExtResource("2_vsvgd")
+text = "Nível: 0"
+
+[node name="PausePopup" parent="HUD" instance=ExtResource("4_q52wb")]
+size = Vector2i(1152, 648)
+visible = false
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_1yfgi")
+
+[node name="SfxExit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_6jnfe")
+
+[node name="SfxDoorClose" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_f3crl")
+
+[node name="SfxDoorOpen" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_el7dj")
+
+[node name="DoorCloseTimer" type="Timer" parent="."]
+
+[node name="DoorOpenTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="DoorCloseTimer" to="." method="_on_door_close_timer_timeout"]
+[connection signal="timeout" from="DoorOpenTimer" to="." method="_on_door_open_timer_timeout"]

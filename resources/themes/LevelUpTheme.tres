@@ -1,0 +1,44 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://ks8ewg5jsgpi"]
+
+[ext_resource type="FontFile" uid="uid://g1a0og7mv4yp" path="res://assets/Fontes/Berry Rotunda.ttf" id="1_c7a27"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7y7dy"]
+bg_color = Color(0.6, 0.6, 0.6, 0.709804)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 45
+corner_radius_bottom_right = 45
+shadow_color = Color(0.00392157, 0.00392157, 0.00392157, 0.694118)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_auwi4"]
+bg_color = Color(1, 0.219608, 0.345098, 0.709804)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 0.279527, 0.58795, 1)
+corner_radius_top_left = 45
+corner_radius_bottom_right = 45
+
+[resource]
+default_font = ExtResource("1_c7a27")
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(1, 1, 1, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0)
+Label/constants/line_spacing = 0
+Label/constants/outline_size = 0
+Label/constants/shadow_offset_x = 0
+Label/constants/shadow_offset_y = 0
+Label/constants/shadow_outline_size = 0
+Label/font_sizes/font_size = 60
+Label/fonts/font = ExtResource("1_c7a27")
+ProgressBar/colors/font_color = Color(0.95, 0.95, 0.95, 1)
+ProgressBar/colors/font_outline_color = Color(0, 0, 0, 1)
+ProgressBar/colors/font_shadow_color = Color(0, 0, 0, 1)
+ProgressBar/constants/line_spacing = 0
+ProgressBar/constants/outline_size = 0
+ProgressBar/font_sizes/font_size = 60
+ProgressBar/styles/background = SubResource("StyleBoxFlat_7y7dy")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_auwi4")

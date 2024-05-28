@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://dow5hph5ychju"]
+
+[ext_resource type="Script" path="res://Entities/Items/monster_counter.gd" id="1_kh0je"]
+[ext_resource type="FontFile" uid="uid://g1a0og7mv4yp" path="res://assets/Fontes/Berry Rotunda.ttf" id="2_8q0nl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dbkm8"]
+font = ExtResource("2_8q0nl")
+font_size = 59
+
+[node name="MonsterCounter" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kh0je")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CounterLabel" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = -44.0
+offset_top = -46.0
+offset_right = 47.0
+offset_bottom = -20.0
+text = "0"
+label_settings = SubResource("LabelSettings_dbkm8")
+horizontal_alignment = 1

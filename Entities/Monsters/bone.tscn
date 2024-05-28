@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://cplcakencxj5m"]
+
+[ext_resource type="Script" path="res://entities/Monsters/bone.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://bo57yarr7klqi" path="res://assets/Graficos/fx/bone.png" id="2"]
+
+[sub_resource type="Animation" id="1"]
+resource_name = "spin"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 360.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rgj3j"]
+_data = {
+"spin": SubResource("1")
+}
+
+[sub_resource type="RectangleShape2D" id="2"]
+size = Vector2(10, 3)
+
+[node name="Bone" type="CharacterBody2D" groups=["projectiles"]]
+z_index = 20
+rotation = 6.28319
+scale = Vector2(0.5, 0.5)
+collision_layer = 4
+script = ExtResource("1")
+
+[node name="bone" type="Sprite2D" parent="."]
+light_mask = 0
+z_index = 7
+position = Vector2(2.32831e-10, 1.86265e-09)
+texture = ExtResource("2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rgj3j")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-8.59023e-08, -0.5)
+shape = SubResource("2")

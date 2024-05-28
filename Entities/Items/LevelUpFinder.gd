@@ -1,0 +1,16 @@
+extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	var thePlayer = $"/root/Main/The_Player"
+	var theMap = globals.map
+	
+	if theMap!=null:
+		$UpStairs.rotation = thePlayer.find_direction_to(theMap.entry)
+	

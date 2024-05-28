@@ -1,0 +1,113 @@
+[gd_scene load_steps=13 format=3 uid="uid://5nyu7gpl5ski"]
+
+[ext_resource type="Texture2D" uid="uid://bl0ad1ky3ta6j" path="res://assets/Graficos/Items/potion.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://d00be1wo4t1il" path="res://assets/Graficos/fx/light-sm.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://du74rb6v6hoi7" path="res://assets/Graficos/fx/potionSpark.png" id="4_jvhh1"]
+[ext_resource type="AudioStream" uid="uid://d0qy14cob4j8x" path="res://assets/Audio/sfx/heal.wav" id="5"]
+
+[sub_resource type="Animation" id="Animation_cb2vn"]
+resource_name = "glow"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0.439216, 1, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_er0so"]
+_data = {
+"glow": SubResource("Animation_cb2vn")
+}
+
+[sub_resource type="Gradient" id="2"]
+offsets = PackedFloat32Array(0, 0.892308)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="3"]
+gradient = SubResource("2")
+
+[sub_resource type="Curve" id="Curve_etatu"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.127937, 18.1818), 0.0, 0.0, 0, 0, Vector2(0.699739, -21.8182), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_n5jl2"]
+curve = SubResource("Curve_etatu")
+
+[sub_resource type="ParticleProcessMaterial" id="4"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 3, 1)
+angular_velocity_min = 52.3
+angular_velocity_max = 522.66
+gravity = Vector3(0, -80, 0)
+linear_accel_min = 0.21
+linear_accel_max = 25.4
+radial_accel_min = -3.05
+radial_accel_max = 2.88
+radial_accel_curve = SubResource("CurveTexture_n5jl2")
+tangential_accel_max = 17.78
+scale_min = 0.8
+scale_max = 2.0
+color = Color(0, 0.862745, 1, 1)
+color_ramp = SubResource("3")
+hue_variation_min = -0.2
+hue_variation_max = 0.2
+
+[sub_resource type="RectangleShape2D" id="5"]
+size = Vector2(3, 3)
+
+[node name="Potion" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.319772, 0.618539, 1, 1)
+light_mask = 0
+position = Vector2(8, 8)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_er0so")
+}
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(8, 14)
+scale = Vector2(1, 0.5)
+color = Color(0, 0.184314, 0.898039, 1)
+energy = 2.0
+range_z_min = 0
+range_z_max = 0
+texture = ExtResource("3")
+texture_scale = 0.4
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+light_mask = 0
+position = Vector2(7, -4)
+process_material = SubResource("4")
+texture = ExtResource("4_jvhh1")
+lifetime = 0.8
+randomness = 0.31
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(8, 11)
+shape = SubResource("5")
+
+[node name="Sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5")
+volume_db = -11.44
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="finished" from="Sfx" to="." method="_on_Sfx_finished"]
